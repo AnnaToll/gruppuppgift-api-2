@@ -2,10 +2,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Create post</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <form id="createpost-form">
+
+        <h1>Skapa nytt inlägg</h1>
+        <input type="text" id="title-input" placeholder="Titel">
+        <input type="text" id="author-input" placeholder="Författare"><br><br>
+
+        <textarea id="content-area" cols="50" rows="20" placeholder="Skriv ditt inlägg här!">
+        </textarea><br><br>
+
+        <button id="create-btn">Skapa</button><br><br>
+
+        <a href="index.html">Tillbaka</a>
+
+    </form>
+
+
     <script src="js/create-post.js"></script>
 </body>
 </html>
