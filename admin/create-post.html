@@ -6,24 +6,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<main>
 
-    <form id="Createpost-form">
+    <form id="createpost-form">
 
-        <h2>Skapa nytt inlägg</h2>
+        <h1>Skapa nytt inlägg</h1>
+        <input type="text" id="title-input" placeholder="Titel">
+        <input type="text" id="author-input" placeholder="Författare"><br><br>
 
-        <input type="text" id="Title-input" placeholder="Titel">
-        <input type="text" id="Author-input" placeholder="Författare"><br><br>
-
-        <textarea type="text" id="content-area" cols="40" rows="20" placeholder="Skriv ditt inlägg här!">
+        <textarea id="content-area" cols="50" rows="20" placeholder="Skriv ditt inlägg här!">
         </textarea><br><br>
 
-        <input type="Submit" value="Skapa" id="Submit-btn">
+        <button id="create-btn">Skapa</button><br><br>
+
         <a href="index.html">Tillbaka</a>
 
     </form>
 
-</main>
 
     <script src="js/create-post.js"></script>
 </body>
