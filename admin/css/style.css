@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(221, 221, 221);
+}
+
+h2 {
+    margin-bottom: 50px;
+}
+
+a,
+button {
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(233, 233, 233);
+    padding: 0.5em 0.5em;
+    border: none;
+}
+
+main {
+    background-color: white;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 30px 50px 30px;
+}
+
+#new-post-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+#to-blog-btn {
+    display: inline-block;
+    margin-bottom: 10vh;
+}
+
+#admin-overview-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#admin-overview-table th,
+#admin-overview-table td {
+    border: 1px solid grey;
+    padding-left: 20px;
+}
+
+#admin-overview-table tr {
+    height: 50px;
+    
+}
