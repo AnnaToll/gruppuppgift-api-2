@@ -1,18 +1,24 @@
+let errorMessageContainer = createErrorMessage();
+
 addBlogPostsToAdmin();
 
 
 async function addBlogPostsToAdmin() {
 
-    let blogPosts = await fetchBlogPosts();
     let tableBody = document.querySelector('tbody');
+    let blogPosts = await fetchBlogPosts(tableBody);
+
+    console.log(blogPosts);
+
+    if(blogPosts == undefined) return;
 
     tableBody.innerHTML = '';
 
     for (let post of blogPosts) {
-        let date = new Date(post.date);
-        let month = convertMonth(date.getMonth());
-    
-        let tableRow = document.createElement('tr');
+        let date = new Date(post.date),
+            month = convertMonth(date.getMonth()),
+            tableRow = document.createElement('tr');
+
         tableBody.append(tableRow);
 
         tableRow.innerHTML += `
@@ -25,32 +31,33 @@ async function addBlogPostsToAdmin() {
             </td>
         `;
 
-        tableRow.children[3].firstElementChild.addEventListener('click', async () => {
+        let btnErase = tableRow.children[3].firstElementChild;
 
+        btnErase.addEventListener('click', async (e) => {
             try {
                 fetch(`http://localhost:5000/posts/${post._id}`, {
                 method: 'DELETE'
-                });
+                })
+                window.location.reload();
             }
             catch(error) {
-                console.log(error);
+                console.log(btnErase.parentElement);
+                console.log(e.target.parentElement);
+                e.target.parentElement.innerHTML = error;
             }
-
-            window.location.reload();
         })
-    }
-
-    
+    }   
 }
 
-async function fetchBlogPosts() {
+async function fetchBlogPosts(tableBody) {
     try {
         let response = await fetch('http://localhost:5000/posts');
         let blogPosts = await response.json();
         return blogPosts;
     }
     catch(error) {
-        console.log(error);
+        tableBody.classList.add('error-message');
+        tableBody.innerText = error;
     }
 }
 
@@ -93,4 +100,11 @@ function convertMonth(month) {
             month = "december";
       }
       return month;
+}
+
+function createErrorMessage() {
+    let errorMessageContainer = document.createElement('div');
+    errorMessageContainer.classList.add('error-message-container');
+    document.body.prepend(errorMessageContainer);
+    return errorMessageContainer;
 }
