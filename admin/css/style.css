@@ -27,6 +27,7 @@ main {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px 30px 50px 30px;
+    min-height: 100vh;
 }
 
 #new-post-btn {
@@ -53,4 +54,10 @@ main {
 #admin-overview-table tr {
     height: 50px;
     
+}
+
+.error-message {
+    font-weight: 700;
+    color: red;
+    font-size: 18px;
 }
