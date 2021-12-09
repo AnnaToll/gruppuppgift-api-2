@@ -1,5 +1,4 @@
-
-
+addBlogPostsToAdmin();
 
 
 async function addBlogPostsToAdmin() {
@@ -10,12 +9,16 @@ async function addBlogPostsToAdmin() {
     tableBody.innerHTML = '';
 
     for (let post of blogPosts) {
+        let date = new Date(post.date);
+        let month = convertMonth(date.getMonth());
+
+        console.log(date.getFullYear());
         console.log(post);
         tableBody.innerHTML += `
             <tr>
                 <td>${post.title}</td>
                 <td>${post.author}</td>
-                <td>${post.date}</td>
+                <td>${date.getDate()} ${month} - ${date.getFullYear()}</td>
                 <td>
                     <button>Radera inlägg</button>
                     <a href="update-post.html">Uppdatera</a>
@@ -23,6 +26,8 @@ async function addBlogPostsToAdmin() {
             </tr>
         `;
     }
+
+    
 }
 
 async function fetchBlogPosts() {
@@ -36,4 +41,43 @@ async function fetchBlogPosts() {
     }
 }
 
-addBlogPostsToAdmin();
+function convertMonth(month) {
+    switch (month) {
+        case 0:
+            month = "januari";
+            break;
+        case 1:
+            month = "februari";
+            break;
+        case 2:
+            month = "mars";
+            break;
+        case 3:
+            month = "april";
+            break;
+        case 4:
+            month = "maj";
+            break;
+        case 5:
+            month = "juni";
+            break;
+        case 6:
+            month = "juli";
+            break;
+        case 7:
+            month = "augusti";
+            break;
+        case 8:
+            month = "september";
+            break;
+        case 9:
+            month = "oktober";
+            break;
+        case 10:
+            month = "november";
+            break;
+        case 11:
+            month = "december";
+      }
+      return month;
+}
