@@ -11,20 +11,33 @@ async function addBlogPostsToAdmin() {
     for (let post of blogPosts) {
         let date = new Date(post.date);
         let month = convertMonth(date.getMonth());
+    
+        let tableRow = document.createElement('tr');
+        tableBody.append(tableRow);
 
-        console.log(date.getFullYear());
-        console.log(post);
-        tableBody.innerHTML += `
-            <tr>
-                <td>${post.title}</td>
-                <td>${post.author}</td>
-                <td>${date.getDate()} ${month} - ${date.getFullYear()}</td>
-                <td>
-                    <button>Radera inlägg</button>
-                    <a href="update-post.html">Uppdatera</a>
-                </td>
-            </tr>
+        tableRow.innerHTML += `
+            <td>${post.title}</td>
+            <td>${post.author}</td>
+            <td>${date.getDate()} ${month} - ${date.getFullYear()}</td>
+            <td>
+                <button>Radera inlägg</button>
+                <a href="update-post.html">Uppdatera</a>
+            </td>
         `;
+
+        tableRow.children[3].firstElementChild.addEventListener('click', async () => {
+
+            try {
+                fetch(`http://localhost:5000/posts/${post._id}`, {
+                method: 'DELETE'
+                });
+            }
+            catch(error) {
+                console.log(error);
+            }
+
+            window.location.reload();
+        })
     }
 
     
