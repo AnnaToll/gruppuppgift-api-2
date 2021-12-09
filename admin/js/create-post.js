@@ -18,7 +18,7 @@ formdataObject = {
     
 
     try {
-        await fetch(' '), {
+        await fetch('http://localhost:5000/posts'), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
