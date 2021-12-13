@@ -1,15 +1,5 @@
 const form = document.getElementById("Createpost-form").addEventListener("submit", async (e) =>  {
-    e.preventDefault;
-/*
-    let formdata = new FormData(form);
-    formdataObject = {
-    "title": formdata.get("Title"),
-    "content": formdata.get("Content"),
-    "author": formdata.get("Author"),
-  }
-
-    console.log(JSON.stringify(formdataObject))
-    */
+    e.preventDefault();
 
 
     const Title = document.getElementById("Title-input").value
@@ -34,7 +24,12 @@ const form = document.getElementById("Createpost-form").addEventListener("submit
             body: JSON.stringify(data),
         })
 
+        window.location.replace('index.html')
+
     } catch(error) {
         console.log(error)
-    } 
+    }
+    
+    
 });
+
