@@ -1,4 +1,4 @@
-let errorMessageContainer = createErrorMessage();
+// let errorMessageContainer = createErrorMessage();
 
 addBlogPostsToAdmin();
 
@@ -38,7 +38,6 @@ async function addBlogPostsToAdmin() {
                 fetch(`http://localhost:5000/posts/${post._id}`, {
                 method: 'DELETE'
                 })
-                window.location.reload();
             }
             catch(error) {
                 console.log(btnErase.parentElement);
@@ -100,11 +99,4 @@ function convertMonth(month) {
             month = "december";
       }
       return month;
-}
-
-function createErrorMessage() {
-    let errorMessageContainer = document.createElement('div');
-    errorMessageContainer.classList.add('error-message-container');
-    document.body.prepend(errorMessageContainer);
-    return errorMessageContainer;
 }
