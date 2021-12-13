@@ -1,4 +1,4 @@
-const form = document.getElementById("Createpost-form").addEventListener("submit", async (e, Result) =>  {
+const form = document.getElementById("Createpost-form").addEventListener("submit", async (e) =>  {
     e.preventDefault();
 
 
