@@ -1,5 +1,9 @@
 // let errorMessageContainer = createErrorMessage();
 
+console.log(location.search);  
+
+console.log(location);
+
 addBlogPostsToAdmin();
 
 
@@ -32,6 +36,8 @@ async function addBlogPostsToAdmin() {
         `;
 
         let btnErase = tableRow.children[3].firstElementChild;
+
+        // <a href="update-post.html/?id=${post._id}">Uppdatera</a>
 
         btnErase.addEventListener('click', async (e) => {
             try {
