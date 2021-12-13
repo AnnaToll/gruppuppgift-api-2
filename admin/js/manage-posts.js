@@ -1,8 +1,6 @@
 // let errorMessageContainer = createErrorMessage();
 
-console.log(location.search);  
 
-console.log(location);
 
 addBlogPostsToAdmin();
 
@@ -21,21 +19,31 @@ async function addBlogPostsToAdmin() {
     for (let post of blogPosts) {
         let date = new Date(post.date),
             month = convertMonth(date.getMonth()),
-            tableRow = document.createElement('tr');
+            tableRow = document.createElement('tr'),
+            tagsList = document.createElement('ul');
 
         tableBody.append(tableRow);
+
+        console.log(post.tags);
+
+        for (let tag of post.tags) {
+            let listItem = document.createElement('li');
+            listItem.innerHTML = tag;
+            tagsList.append(listItem);
+        }
 
         tableRow.innerHTML += `
             <td>${post.title}</td>
             <td>${post.author}</td>
             <td>${date.getDate()} ${month} - ${date.getFullYear()}</td>
+            <td>${tagsList.innerHTML}</td>
             <td>
                 <button>Radera inlägg</button>
                 <a href="update-post.html">Uppdatera</a>
             </td>
         `;
 
-        let btnErase = tableRow.children[3].firstElementChild;
+        let btnErase = tableRow.children[4].firstElementChild;
 
         btnErase.addEventListener('click', async (e) => {
             try {

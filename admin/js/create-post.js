@@ -24,9 +24,6 @@ const form = document.getElementById("Createpost-form").addEventListener("submit
 
     console.log(JSON.stringify(data))
 
-    console.log(tags.value);
-
-
     try {
         await fetch('http://localhost:5000/posts', {
             method: 'POST',
