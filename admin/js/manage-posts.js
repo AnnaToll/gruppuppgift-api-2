@@ -31,13 +31,11 @@ async function addBlogPostsToAdmin() {
             <td>${date.getDate()} ${month} - ${date.getFullYear()}</td>
             <td>
                 <button>Radera inlägg</button>
-                <a href="update-post.html?id=${post._id}">Uppdatera</a>
+                <a href="update-post.html">Uppdatera</a>
             </td>
         `;
 
         let btnErase = tableRow.children[3].firstElementChild;
-
-        // <a href="update-post.html/?id=${post._id}">Uppdatera</a>
 
         btnErase.addEventListener('click', async (e) => {
             try {
