@@ -1,15 +1,25 @@
-const form = document.getElementById("Createpost-form").addEventListener("submit", async (e) =>  {
+const form = document.getElementById("Createpost-form").addEventListener("submit", async (e, Result) =>  {
     e.preventDefault();
+
+
+    const selected = []
+    for (var option of document.getElementById('tagSelect').options) {
+        if (option.selected == true) {
+            selected.push(option.value);
+        }
+    }
 
 
     const Title = document.getElementById("Title-input").value
     const Author = document.getElementById("Author-input").value
     const Content = document.getElementById("content-area").value
 
+
     const data = {
         "title": Title, 
         "author": Author,
-        "content": Content
+        "content": Content,
+        "tags": selected
     }
 
     console.log(JSON.stringify(data))
@@ -32,4 +42,3 @@ const form = document.getElementById("Createpost-form").addEventListener("submit
     
     
 });
-
