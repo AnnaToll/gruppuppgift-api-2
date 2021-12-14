@@ -1,0 +1,33 @@
+body {
+    background-color: rgb(221, 221, 221);
+}
+
+main {
+    background-color: white;
+    max-width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+
+thead, tbody, tfoot {
+    border: 1px solid black;
+    width: 700px;
+  }
+
+#admin-btn {
+    display: inline-block;
+    margin: 25px 0;
+    font-size: 14px;
+    font-family: Arial;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(233, 233, 233);
+    padding: 0.5em 0.5em;
+}
+
+
+h2 {
+    font-family: Arial;
+}
