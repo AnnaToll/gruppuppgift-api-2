@@ -25,7 +25,7 @@ async function addBlogPostsToAdmin() {
         tableBody.append(tableRow);
 
         if(post.tags == null)
-            tagsContentContainer.innerHTML = 'Inga taggar';
+            tagsContentContainer.innerHTML = 'null';
         else {
             
             if(post.tags.length == 0)
