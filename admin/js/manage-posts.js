@@ -61,8 +61,11 @@ async function addBlogPostsToAdmin() {
                 let response = await fetch(`http://localhost:5000/posts/${post._id}`, {
                 method: 'DELETE'
                 })
+                
                 if(!response.ok) {
                     console.log('eeeerrrroooorr');
+                } else{
+                    tableRow.remove()
                 }
             }
             catch(error) {
