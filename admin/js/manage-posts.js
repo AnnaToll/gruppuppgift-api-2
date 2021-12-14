@@ -50,7 +50,7 @@ async function addBlogPostsToAdmin() {
             <td>${tagsContentContainer.innerHTML}</td>
             <td>
                 <button>Radera inlägg</button>
-                <a href="update-post.html">Uppdatera</a>
+                <a href="update-post.html?id=${post._id}">Uppdatera</a>
             </td>
         `;
 
