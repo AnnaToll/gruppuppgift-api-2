@@ -39,8 +39,8 @@ async function addBlogPosts() {
         <h3>Titel: ${post.title}</h3>
         <p>Skriven av: ${post.author}</p>
         <p>${shortenContent(post.content)}</p>
+        <a href="post.html?id=${post._id}" target="_blank">läs mer</a>
         <p>${tagsContent.innerHTML} Datum: ${date.getDate()} ${month} - ${date.getFullYear()}</p>
-        <a href="post.html?id=${post._id}" target="_blank">Gå till post</a>
         <hr>
         </div>
         `
