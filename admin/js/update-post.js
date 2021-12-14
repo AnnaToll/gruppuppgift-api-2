@@ -7,13 +7,11 @@ let contentContent  = document.getElementById("content-area")
 
 let contentTags     = document.getElementById("tagSelect")
 
+
 function addSelectedToTags(postTags) {
-    for (let tagName of postTags) {
-        for (let tag of contentTags.children) {
-            if (tagName == tag.value) {
-                tag.selected = true;
-            }
-        }
+    for (let tag of contentTags.children) {
+        if (postTags.includes(tag.value)) 
+            tag.selected = true;
     }
 }
 
