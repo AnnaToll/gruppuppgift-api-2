@@ -3,13 +3,14 @@ let main = document.querySelector('main');
 let urlParameters = new URLSearchParams(location.search);
 let id = urlParameters.get('id');
 
+addContentToMain();
+
 async function addContentToMain() {
     let response = await fetch(`http://localhost:5000/posts/${id}`);
     let post = await response.json();
 
     let date = new Date(post.date);
     let month = convertMonth(date.getMonth());
-    let tagsString = post.tags.split(', ');
 
     main.innerHTML = `
         <h1>${post.title}</h1>
@@ -19,7 +20,7 @@ async function addContentToMain() {
         </section>
         <p>${post.content}</p>
         <section class="blog-post-tags-container">
-            ${tagsString}
+            ${post.tags.join(', ')}
         </section>
     `;
 
