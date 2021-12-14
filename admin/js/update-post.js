@@ -11,13 +11,31 @@ let Tag2            = document.getElementById("tag2")
 let Tag3            = document.getElementById("tag3")
 let Tag4            = document.getElementById("tag4")
 
-function isTagThere(theTag) {
+/* function isTagThere(theTag) {
     console.log(theTag)
     for (let i = 5; i>=0; i--){
         if (theTag[i] === `Tag${i+1}`){
             console.log(i+1)
         }
     }
+} */
+
+addSelectedTags();
+
+async function addSelectedTags() {
+    let response = await fetch(`http://localhost:5000/posts/${id}`);
+    let post = await response.json();
+
+    for (let tagName of post.tags) {
+        for (let tag of contentTags.children) {
+            if (tagName == tag.value) {
+                tag.selected = true;
+            }
+        }
+    }
+
+
+
 }
 
 try {
@@ -27,7 +45,7 @@ try {
         contentTitle.value          = (data.title)
         contentAuthor.value         = (data.author)
         contentContent.innerHTML    = (data.content)
-        isTagThere(data.tags)
+        // isTagThere(data.tags)
         
     });
     
