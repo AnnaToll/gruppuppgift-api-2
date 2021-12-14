@@ -13,14 +13,14 @@ async function addContentToMain() {
     let month = convertMonth(date.getMonth());
 
     main.innerHTML = `
-        <h1>${post.title}</h1>
+        <h2>${post.title}</h2>
         <section class=".blog-post-info">
-            <div>${post.author} </div>
-            <div>${date.getDate()} ${month} - ${date.getFullYear()}</div>
+            <div>Skriven av: ${post.author} </div>
         </section>
         <p>${post.content}</p>
         <section class="blog-post-tags-container">
-            ${post.tags.join(', ')}
+            <p>${post.tags.join(', ')}</p>
+            <div>${date.getDate()} ${month} - ${date.getFullYear()}</div>
         </section>
     `;
 

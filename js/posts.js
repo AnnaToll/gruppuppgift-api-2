@@ -40,7 +40,8 @@ async function addBlogPosts() {
         <p>Skriven av: ${post.author}</p>
         <p>${shortenContent(post.content)}</p>
         <a href="post.html?id=${post._id}" target="_blank">läs mer</a>
-        <p>${tagsContent.innerHTML} Datum: ${date.getDate()} ${month} - ${date.getFullYear()}</p>
+        <p> ${post.tags.join(', ')}</p>
+        <div>${date.getDate()} ${month} - ${date.getFullYear()}</div>
         <hr>
         </div>
         `
