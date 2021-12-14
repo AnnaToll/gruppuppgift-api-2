@@ -20,23 +20,34 @@ async function addBlogPostsToAdmin() {
         let date = new Date(post.date),
             month = convertMonth(date.getMonth()),
             tableRow = document.createElement('tr'),
-            tagsList = document.createElement('ul');
+            tagsContentContainer = document.createElement('div');
 
         tableBody.append(tableRow);
 
-        console.log(post.tags);
-
-        for (let tag of post.tags) {
-            let listItem = document.createElement('li');
-            listItem.innerHTML = tag;
-            tagsList.append(listItem);
+        if(post.tags == null)
+            tagsContentContainer.innerHTML = 'Inga taggar';
+        else {
+            
+            if(post.tags.length == 0)
+                tagsContentContainer.innerHTML = 'Inga taggar';
+    
+            else {
+                let tagsList = document.createElement('ul');
+                for (let tag of post.tags) {    
+                    let listItem = document.createElement('li');
+                    listItem.innerHTML = tag;
+                    tagsList.append(listItem);
+                }
+                tagsContentContainer.append(tagsList);
+            }
         }
 
+        
         tableRow.innerHTML += `
             <td>${post.title}</td>
             <td>${post.author}</td>
             <td>${date.getDate()} ${month} - ${date.getFullYear()}</td>
-            <td>${tagsList.innerHTML}</td>
+            <td>${tagsContentContainer.innerHTML}</td>
             <td>
                 <button>Radera inlägg</button>
                 <a href="update-post.html">Uppdatera</a>
@@ -47,14 +58,15 @@ async function addBlogPostsToAdmin() {
 
         btnErase.addEventListener('click', async (e) => {
             try {
-                fetch(`http://localhost:5000/posts/${post._id}`, {
+                let response = await fetch(`http://localhost:5000/posts/${post._id}`, {
                 method: 'DELETE'
                 })
+                if(!response.ok) {
+                    console.log('eeeerrrroooorr');
+                }
             }
             catch(error) {
-                console.log(btnErase.parentElement);
-                console.log(e.target.parentElement);
-                e.target.parentElement.innerHTML = error;
+                console.log(error);
             }
         })
     }   
