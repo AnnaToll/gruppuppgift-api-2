@@ -23,6 +23,14 @@ const form = document.getElementById("Createpost-form").addEventListener("submit
     e.preventDefault();
 
 
+    const selected = []
+    for (var option of document.getElementById('tagSelect').options) {
+        if (option.selected == true) {
+            selected.push(option.value);
+        }
+    }
+
+    
     const Title = document.getElementById("Title-input").value
     const Author = document.getElementById("Author-input").value
     const Content = document.getElementById("content-area").value
