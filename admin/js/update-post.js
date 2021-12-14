@@ -20,9 +20,9 @@ let Tag4            = document.getElementById("tag4")
     }
 } */
 
-addSelectedTags();
+addSelectedToTags();
 
-async function addSelectedTags() {
+async function addSelectedToTags() {
     let response = await fetch(`http://localhost:5000/posts/${id}`);
     let post = await response.json();
 
