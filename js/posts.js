@@ -34,12 +34,12 @@ async function addBlogPosts() {
 
  
         tableBody.innerHTML += `
-        <div>
-        <p style="font-size:20px;">Titel: ${post.title}</p>
-        <p>Skriven av: ${post.author}</p>
-        <p>${post.content}</p>
-        <p>${tagsContent.innerHTML} Datum: ${date.getDate()} ${month} - ${date.getFullYear()}</p>
-        </div>
+        <a href="post.html?id=${post._id}" target="_blank" style="display: block;">
+            <p style="font-size:20px;">Titel: ${post.title}</p>
+            <p>Skriven av: ${post.author}</p>
+            <p>${post.content}</p>
+            <p>${tagsContent.innerHTML} Datum: ${date.getDate()} ${month} - ${date.getFullYear()}</p>
+        </a>
         `
 
     }

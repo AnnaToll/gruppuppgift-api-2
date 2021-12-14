@@ -2,6 +2,11 @@ body {
     background-color: rgb(221, 221, 221);
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 main,
 #tbody {
     background-color: white;
