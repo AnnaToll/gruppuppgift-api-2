@@ -1,5 +1,6 @@
 addBlogPosts(); 
 
+let shortenedText = ''
 async function addBlogPosts() {
     const tableBody = document.getElementById("tbody")
 
@@ -32,13 +33,12 @@ async function addBlogPosts() {
             tagsContent.append(tagsList);
         }
 
- 
         tableBody.innerHTML += `
         <div>
         <hr>
         <h3>Titel: ${post.title}</h3>
         <p>Skriven av: ${post.author}</p>
-        <p>${post.content}</p>
+        <p>${shortenContent(post.content)}</p>
         <p>${tagsContent.innerHTML} Datum: ${date.getDate()} ${month} - ${date.getFullYear()}</p>
         <hr>
         </div>
@@ -93,8 +93,10 @@ function changeMonth(month) {
       return month;
 }
 
-
-   
-
-
-        
+function shortenContent(str) {
+    if (str.length>=100){
+        str=str.slice(0,100)
+        str+='...'
+    }
+    return str
+}
