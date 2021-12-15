@@ -1,15 +1,19 @@
 * {
     box-sizing: border-box;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
 }
 
 body {
     background-color: rgb(221, 221, 221);
+    margin: 0 auto;
 }
 
 h2 {
     margin-bottom: 50px;
+    font-family: Arial black;
+    text-align: center;
+    padding-top: 30px;
 }
 
 a,
@@ -48,10 +52,12 @@ main {
     width: 100%;
 }
 
+
 #admin-overview-table th,
 #admin-overview-table td {
     border: 1px solid grey;
-    padding-left: 20px;
+    padding: 20px;
+    font-family: Arial;
 }
 
 #admin-overview-table tr {
