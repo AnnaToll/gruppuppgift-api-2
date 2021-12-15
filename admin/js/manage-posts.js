@@ -32,10 +32,10 @@ async function addBlogPostsToAdmin() {
                 tagsContentContainer.innerHTML = 'Inga taggar';
     
             else {
-                let tagsList = document.createElement('ul');
+                let tagsList = document.createElement('section');
                 for (let tag of post.tags) {    
-                    let listItem = document.createElement('li');
-                    listItem.innerHTML = tag;
+                    let listItem = document.createElement('div');
+                    listItem.innerHTML = tag
                     tagsList.append(listItem);
                 }
                 tagsContentContainer.append(tagsList);
@@ -46,8 +46,8 @@ async function addBlogPostsToAdmin() {
         tableRow.innerHTML += `
             <td>${post.title}</td>
             <td>${post.author}</td>
-            <td>${date.getDate()} ${month} - ${date.getFullYear()}</td>
             <td>${tagsContentContainer.innerHTML}</td>
+            <td>${date.getDate()} ${month} - ${date.getFullYear()}</td>
             <td>
                 <button>Radera inlägg</button>
                 <a href="update-post.html?id=${post._id}">Uppdatera</a>
