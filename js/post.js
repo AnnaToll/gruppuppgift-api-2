@@ -13,6 +13,7 @@ async function addContentToMain() {
     let month = convertMonth(date.getMonth());
 
     main.innerHTML = `
+        <a href="index.html">Tillbaka till bloggen</a>
         <h2>${post.title}</h2>
         <section class=".blog-post-info">
             <div>Skriven av: ${post.author} </div>
