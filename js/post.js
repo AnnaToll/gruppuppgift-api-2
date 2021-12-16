@@ -13,6 +13,7 @@ async function addContentToMain() {
     let month = convertMonth(date.getMonth());
 
     main.innerHTML = `
+    <div style="font-family: Arial;">
         <a href="index.html">Tillbaka till bloggen</a>
         <h2>${post.title}</h2>
         <section class=".blog-post-info">
@@ -23,6 +24,7 @@ async function addContentToMain() {
             <p>${post.tags.join(', ')}</p>
             <div>${date.getDate()} ${month} - ${date.getFullYear()}</div>
         </section>
+    </div>
     `;
 
 }
